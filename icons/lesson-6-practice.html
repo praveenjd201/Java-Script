@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+  <title>lesson 6 practice</title>
+</head>
+<body>
+  <script>
+    // ----6a,6b,6c
+    const hour=5;
+    const name='praveenkumar Dhamodharan'
+    if(hour >= 6 &&  hour < 12){
+      console.log(`good morning ${name}`)
+    }else if(hour >= 12 && hour < 17){
+      console.log(`good afternoon ${name}`)
+    }else{
+      console.log(`good night ${name}`);
+    }
+  </script>
+  
+  <script>
+    //----6d
+  	const age =5;
+    const isHoliday=true;
+    if((age<=6 || age >= 60) && !isHoliday){
+      console.log(`discount`);
+            
+    }else {
+      console.log(`No discount`);
+    }  	
+  </script>
+  <script>
+    const randomNumber=Math.random();
+    
+    const guess='head';
+    // if(randomNumber < 1/2){
+    //   // console.log(`head`);
+    //   result='head';
+    // }else{
+    //   // console.log('tail');
+    //   result='tail';
+    // }
+      // using ternary operator
+
+    const result = randomNumber < 1/2 ? 'head' : 'tail';
+
+    // if(guess === result){
+    //   console.log("you win")
+    // }else {
+    //   console.log("You lose");
+    // }
+  console.log(guess === result ? 'you win' : 'you loss');
+
+  </script>
+
+</body>

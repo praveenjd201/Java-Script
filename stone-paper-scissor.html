@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <style>
+      h1,p{
+        color:white;
+      }
+      body {
+        background-color: rgb(27, 26, 26);
+      }
+      .gadgets-container{
+        display: flex;
+        justify-content: left;
+        align-items:center;
+        
+      }
+      .gadgets{
+        display: flex;
+        height: 70px;
+        border: 4px solid white;
+        border-radius: 75px;
+        padding: 30px 30px;
+        margin-right: 20px;
+        cursor: pointer;
+        
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="gadgets-container">
+      <img src="icons/rock-emoji.png" class="gadgets" onclick="
+        console.log('hello');
+        ">
+      <img src="icons/paper-emoji.png" class="gadgets">
+      <img src="icons/scissors-emoji.png" class="gadgets">
+    </div>
+    <div>
+      <p>
+        Wins: Losses: ties:
+      </p>
+    </div>
+    <div>
+      <button> Reset Score</button>
+    </div>
+    
+    
+
+
+  </body>
+</html>

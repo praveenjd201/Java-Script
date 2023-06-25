@@ -8,26 +8,85 @@
     <button onclick="
       console.log(`Cart Quantity: ${cartQuantity}`);
     ">Show Quantity</button>
-    <button onclick="
-      cartQuantity=cartQuantity+1;
+    <button title="add cart" onclick="
+      // cartQuantity=cartQuantity+1;
+      cartQuantity+1 > 10 ? alert('the cart is full') : cartQuantity++;
+      
+      
       console.log(`Cart Quantity: ${cartQuantity}`);
     ">Add to cart</button>
     <button onclick="
-      cartQuantity=cartQuantity+2;
+      cartQuantity+2 > 10 ? alert('the cart is full') : cartQuantity+=2;
+      
       console.log(`Cart Quantity: ${cartQuantity}`);
     ">+2</button>
     <button onclick="
-      cartQuantity=cartQuantity+3;
+      cartQuantity+3 > 10 ? alert('the cart is full') : cartQuantity+=3;
+      
       console.log(`Cart Quantity: ${cartQuantity}`);
     ">+3</button>
+    <button onclick="
+      cartQuantity+4 > 10 ? alert('the cart is full') : cartQuantity+=4;
+      
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    ">+4</button>
+    <button onclick="
+      cartQuantity+5 > 10 ? alert('the cart is full') : cartQuantity+=5;
+      
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    ">+5</button>
     <button onclick="
       cartQuantity=0
       console.log('cart is cleared')
       console.log(`Cart Quantity: ${cartQuantity}`);
     ">Reset Cart</button>
+    <button onclick="
+    if(cartQuantity-1 > 0){
+      cartQuantity--;
+      console.log(`one product removed from cart`);
+    }else{
+      alert(`Not enough Items in the cart`)
+    }   
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    "> Remove from cart</button>
+
+    <button onclick="
+      if(cartQuantity-2 > 0){
+        cartQuantity-=2;
+        console.log(`two products removed from cart`);
+      }else{
+        alert(`Not enough Items in the cart`)
+      }      
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    ">-2</button>
+    <button onclick="
+        if(cartQuantity-3 > 0){
+        cartQuantity-=3;
+        console.log(`three products removed from cart`);
+      }else{
+        alert(`Not enough Items in the cart`)
+      }      
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    ">-3</button>
+
 
     <script>
       let cartQuantity = 0;
+    </script>
+    <script>
+      // const name='praveen jd';
+      // console.log(`My Name is: ${name}`);
+      // const cost=5*1+3*2+9*1;
+      // console.log(`cost of food: $${cost}`);
+      // const tax=cost*0.1;
+      // console.log(`TAx (10%):$${tax}`)
+      // const totalCost=cost+tax;
+      // console.log(`Total Cost:$${totalCost}`);
+
+
+
+
+      
     </script>
   </body>
 </html>
