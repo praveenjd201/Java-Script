@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>stone paper sissor</title>
+    <title>9-rock paper sissor</title>
   </head>
   <body>
     <p>
@@ -13,10 +13,16 @@
       ">Paper</button>
       <button onclick="
         playGame('scissor');
-      ">scissor</button>
+      ">scissor</button>    
+    </p>
+
+    <p class="js-result"></p>
+    <p class="js-moves"> </p>
+    <p class="js-score"> </p>
+    <p>
       <button onclick="
-        resetScores();
-      "> Reset score</button>
+      resetScores();
+    "> Reset score</button>
     </p>
 
     <p><a href="stone-paper-scissor.html">click here </a> to play </p>
@@ -28,7 +34,9 @@
       losses:0,
       tie : 0
     };
-    
+
+    updateScoreElement();
+     
     
     
     
@@ -64,16 +72,20 @@
           result = 'win'
         }
       }
-      
-      
-      
-    
-      alert(`You picked ${playermove}. Computer picked ${computerMove}. ${result}.\n${validateScore(result)}`);
+      validateScore(result);
+      document.querySelector('.js-moves')
+        .innerHTML=`you ${playermove} - ${computerMove} Computer`;
+
+      // alert(`You picked ${playermove}. Computer picked ${computerMove}. ${result}.\n${validateScore(result)}`);
       
       // Wins: ,Losses: ,Ties: 
 
 
     } 
+    function updateScoreElement(){
+      document.querySelector('.js-score')
+        .innerHTML=`Wins:${scores.wins} ,Losses:${scores.losses} ,Ties:${scores.tie}`;
+    }
 
     function pickComputerMove(){
       const randomNumber=Math.random();
@@ -98,8 +110,13 @@
         scores.tie +=1;
       }
       localStorage.setItem('scores',JSON.stringify(scores));
+      updateScoreElement();
+      document.querySelector('.js-result')
+        .innerHTML=`you ${result}`;
+
       
-      return `Wins:${scores.wins} ,Losses:${scores.losses} ,Ties:${scores.tie}`;
+      
+      // return `Wins:${scores.wins} ,Losses:${scores.losses} ,Ties:${scores.tie}`;
     }
 
     function resetScores(){
@@ -107,6 +124,7 @@
       scores.wins=0;
       scores.losses=0;
       scores.tie=0;
+      updateScoreElement();
     }
 
 
