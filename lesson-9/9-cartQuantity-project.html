@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lesson 5</title>
+  </head>
+  <body>
+    <p>Cart Quantity</p>
+    <button onclick="
+      showCartQuantity();      
+    ">Show Quantity</button>
+    <button title="add cart" onclick="
+      addingCart(1);    
+    ">Add to cart</button>
+    <button onclick="
+      addingCart(2);    
+    ">+2</button>
+    <button onclick="
+      addingCart(3); 
+    
+    ">+3</button>
+    <button onclick="
+      addingCart(4);
+    ">+4</button>
+    <button onclick="
+      addingCart(5);
+    ">+5</button>
+    <button onclick="
+      resettingCart();
+    
+    ">Reset Cart</button>
+
+    <button onclick="
+      removeCart(1);
+    "> Remove from cart</button>
+
+    <button onclick="
+        removeCart(2);
+    ">-2</button>
+    <button onclick="
+        removeCart(3);
+    ">-3</button>
+
+    <p class="js-cart-quantity"></p>
+
+
+    <script>
+      let cartQuantity = Number(localStorage.getItem('cartQuantity'));
+      // console.log(localStorage.getItem('cartQuantity'));
+      function addingCart(value){
+        cartQuantity+value > 10 ? alert('the cart is full') : cartQuantity+=value;
+        showCartQuantity();
+      }
+      function removeCart(value){
+        if(cartQuantity-value >= 0){
+        cartQuantity-=value;
+        console.log(`one product removed from cart`);
+        }else{
+          alert(`Not enough Items in the cart`)
+        }   
+        showCartQuantity();
+      }
+
+      function resettingCart(){
+        cartQuantity=0
+        console.log('cart is cleared')
+        showCartQuantity();
+      }
+      function showCartQuantity(){
+        localStorage.setItem('cartQuantity',cartQuantity);
+        console.log(`Cart Quantity: ${cartQuantity}`);
+        document.querySelector('.js-cart-quantity').innerHTML=`Cart Quantiry : ${cartQuantity}`;
+      }
+    </script>
+    <script>
+      // const name='praveen jd';
+      // console.log(`My Name is: ${name}`);
+      // const cost=5*1+3*2+9*1;
+      // console.log(`cost of food: $${cost}`);
+      // const tax=cost*0.1;
+      // console.log(`TAx (10%):$${tax}`)
+      // const totalCost=cost+tax;
+      // console.log(`Total Cost:$${totalCost}`);
+
+      
+
+
+
+
+      
+    </script>
+  </body>
+</html>

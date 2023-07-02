@@ -1,0 +1,124 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>lesson5-exercise</title>
+    
+  </head>
+  <body>
+    <p class="js-calculation-tab"> </p>
+    
+    <p>
+      <button onclick="
+        updateCalculation('7');
+      ">7</button>
+      <button onclick="
+        updateCalculation('8');
+      ">8</button>
+      <button onclick="
+        updateCalculation('9');
+      ">9</button>    
+      <button onclick="
+      updateCalculation('*');
+      ">
+        *
+      </button>
+      
+      
+
+    </p>
+    
+    
+    <p>
+      <button onclick="
+        updateCalculation('4');
+      ">4</button>
+      <button onclick="
+        updateCalculation('5');
+      ">5</button>
+      <button onclick="
+        updateCalculation('6');
+      ">6</button>
+     
+      <button onclick="
+      updateCalculation(' + ');
+    ">+</button>   
+
+    </p>
+    <p>
+      <button onclick="
+        updateCalculation('1');
+      ">1</button>
+      <button onclick="
+        updateCalculation('2');
+      ">2</button>
+      <button onclick="
+        updateCalculation('3');
+      ">3</button>
+        <button onclick="
+        updateCalculation(' - ');
+      ">-</button> 
+      
+      
+    </p>
+    <p>
+      <button onclick="
+        updateCalculation('0');
+        ">
+        0
+      </button>
+      <button onclick="
+      updateCalculation('.');
+      ">.</button>
+      <button onclick="  
+        calculateNubers();
+      ">=</button>
+      <button onclick="
+      updateCalculation('/');
+      ">
+        /
+      </button>
+      
+    
+    </p>
+    <p>
+      <button onclick="
+      resetCalculation();
+
+    "> Reset</button>
+    </p>
+    
+  
+    
+  </body>
+  <script>
+    let calculation = localStorage.getItem('calculation') || 0;
+    calculationTab();
+
+    function resetCalculation(){
+      localStorage.removeItem('calculation');
+      calculation='';
+      console.log(eval(calculation));
+      calculationTab();
+
+    }
+
+    function updateCalculation(value){
+      console.log(calculation);
+      calculation+=value;
+      console.log(calculation);
+      localStorage.setItem('calculation',calculation);
+      calculationTab();
+    }
+
+    function calculateNubers(){
+      calculation = eval(calculation);
+      console.log(calculation);
+      localStorage.setItem('calculation',calculation);
+      calculationTab();
+    }
+    function calculationTab(){
+      document.querySelector('.js-calculation-tab').innerHTML=calculation;
+    }
+
+  </script>
+</html>

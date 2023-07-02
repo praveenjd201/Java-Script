@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+  <title>lesson 6 practice</title>
+</head>
+<body>
+  <button onclick="
+    playGame('heads');
+    ">
+    heads
+  </button>
+  <button onclick="
+  playGame('tails');
+  ">
+    tails
+  </button>
+  <p class="js-you-choose"></p>
+  <button onclick="
+    reset();
+  ">
+    reset
+  </button>
+
+  <script>
+
+    
+
+    let score= JSON.parse(localStorage.getItem('score')) || {
+      wins:0,
+      losses:0
+    };
+      
+    
+
+    console.log(JSON.parse(localStorage.getItem('score')));
+    
+
+    function playGame(guess){
+      const computerMove=Math.random();
+      const result =  computerMove < 1/2 ? 'heads' : 'tails';
+      
+      // console.log(guess === result ? 'you win' : 'you loss');
+
+      if(guess === result){
+        console.log("you win")
+        score.wins+=1;
+      }else {
+        console.log("You lose");
+        score.losses+=1;
+      }
+      localStorage.setItem('score',JSON.stringify(score));
+
+      console.log(score); 
+      document.querySelector('.js-you-choose').innerHTML=`you choose : ${guess}`;
+
+    }
+
+    function reset(){
+      localStorage.removeItem('score') ;
+      score.wins=0;
+      score.losses=0;
+    }
+    // const randomNumber=Math.random();
+    
+    // const guess='head';
+    // if(randomNumber < 1/2){
+    //   // console.log(`head`);
+    //   result='head';
+    // }else{
+    //   // console.log('tail');
+    //   result='tail';
+    // }
+      // using ternary operator
+
+    // const result = randomNumber < 1/2 ? 'head' : 'tail';
+
+    // if(guess === result){
+    //   console.log("you win")
+    // }else {
+    //   console.log("You lose");
+    // }
+  // console.log(guess === result ? 'you win' : 'you loss');
+
+  </script>
+
+</body>

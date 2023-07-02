@@ -1,7 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>9-dom</title>
+    <title>10-dom</title>
+    <style>
+      body{
+        font-family: arial;
+      }
+      .btn-subscribe{
+        background: black;
+        padding: 8px 16px;
+        color: white;
+        border: none;
+        border-radius: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .is-subscribed{
+        background-color: rgb(227, 222, 222);
+        color: black;
+      }
+      .input-cost{
+        padding: 12px 4px;
+        font-size: 16px;
+      }
+      .btn-calculate{
+        
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 13px 16px;
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
     <p>
@@ -9,7 +39,7 @@
     </p>
     <button onclick="
           isSubscribe();
-    " class="js-btn-subscribe">
+    " class="js-btn-subscribe btn-subscribe">
       Subscribe
     </button><br><br><br>
     
@@ -18,16 +48,17 @@
     <p>Amazon shipping Calculator</p>
     <p>Order under $40 =+$10 shipping</p>
     <p>Orders over $40= FREE shipping</p>
-    <input type="text" placeholder="Cost of order" class="js-price" onkeydown="
+    <input type="text" placeholder="Cost of order" class="js-price input-cost" onkeydown="
     handleCostKeyDown(event); 
     ">
 
-    <p class="js-finalAmount"></p>
+    
     <button onclick="
       calculateTotal()
-    ">
+    " class="btn-calculate">
       calculate
-    </button><br><br><br><br>
+    </button>
+    <p class="js-finalAmount"></p><br><br><br><br>
 
     <input type="text" class="js-get-name" placeholder="Enter you name" onkeydown="
       handleCostKeyDown(event); 
@@ -88,8 +119,11 @@
         const buttonElement = document.querySelector('.js-btn-subscribe');
         if(buttonElement.innerText === 'Subscribe'){
           buttonElement.innerHTML='Subscribed';
+          buttonElement.classList.add('is-subscribed');
         }else{
+          
           buttonElement.innerHTML='Subscribe';
+          buttonElement.classList.remove('is-subscribed');
         }
 
 
