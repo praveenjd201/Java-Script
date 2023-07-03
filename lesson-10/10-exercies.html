@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>10-exercies</title>
+    <style>
+      .toggle{
+        background-color: rgb(218, 217, 217);
+        color:black;
+        border: none;
+        border-radius: 4px;
+        padding: 6px 12px;
+        margin-right: 8px;
+      }
+      .is-toggled{
+        background-color:black ;
+        color:white;
+      }
+
+      .input-cost{
+        padding: 12px 4px;
+        font-size: 16px;
+      }
+      .btn-calculate{
+        
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 13px 16px;
+        font-size: 16px;
+      }
+      .error-message{
+        color: red;
+      }
+    
+      
+    </style>
+
+  </head>
+  <body>
+    <button class="js-button js-btn">Test</button><br><br>
+    <button class="js-btn-game toggle" onclick="
+      togglingBtn('game');
+    ">
+      Gaming
+    </button>
+    <button class="js-btn-music toggle" onclick="
+      togglingBtn('music');
+    ">
+      Music
+    </button>
+    <button class="js-btn-tech toggle" onclick="
+      togglingBtn('tech');
+    ">
+      Tech
+    </button><br><br>
+
+
+
+
+
+    <button class="js-btn-game-10g toggle" onclick="
+      togglingBtn2('game-10g');
+    ">
+      Gaming
+    </button>
+    <button class="js-btn-music-10g toggle" onclick="
+      togglingBtn2('music-10g');
+    ">
+      Music
+    </button>
+    <button class="js-btn-tech-10g toggle" onclick="
+      togglingBtn2('tech-10g');
+    ">
+      music
+    </button><br><br>
+
+    <p>Amazon shipping Calculator</p>
+    <p>Order under $40 =+$10 shipping</p>
+    <p>Orders over $40= FREE shipping</p>
+    <input type="text" placeholder="Cost of order" class="js-price input-cost" onkeydown="
+    handleCostKeyDown(event); 
+    ">
+
+    
+    <button onclick="
+      calculateTotal()
+    " class="btn-calculate">
+      calculate
+    </button>
+    <p class="js-finalAmount" ></p>
+    <p class="js-error-message error-message" ></p><br><br><br><br>
+
+  </body>
+  <script>
+    function handleCostKeyDown(event){
+        console.log(event.key);
+        if(event.key === 'Enter'){
+        calculateTotal();
+        
+      }
+      }
+      function calculateTotal(){
+        const inputElement = document.querySelector('.js-price');
+
+        let price = Number(inputElement.value);
+        console.log(typeof price);
+
+        document.querySelector('.js-finalAmount').innerHTML='';
+        document.querySelector('.js-error-message').innerHTML='';
+      
+        if(price < 0){  
+          document.querySelector('.js-error-message').innerHTML=`Error: cost cannot be less than $0 `;        
+          
+          return;
+        }  
+        if(price >=0 && price < 40){
+          price=((price*100)+1000)/100;
+                   
+        }
+          
+        
+        // console.log(price);
+        
+        document.querySelector('.js-finalAmount').innerHTML=`$${price}`;
+      }
+
+    
+    function togglingBtn2(btn){
+
+      const btnGame=document.querySelector(`.js-btn-${btn}`);
+
+      if(!btnGame.classList.contains('is-toggled')){
+        // before turnning tis button on, check if thre's
+        // already a button that's turned on and turn it off
+        turnoffPreviousButton();
+        //adding the toggle
+        btnGame.classList.add('is-toggled');    
+      }else{
+        //remove the toggle
+        btnGame.classList.remove('is-toggled');    
+      }      
+    }
+
+    function turnoffPreviousButton(){
+      const previousButton=document.querySelector('.is-toggled');
+      if(previousButton){
+        previousButton.classList.remove('is-toggled');
+      }
+      
+    }
+
+    function togglingBtn(btn){
+      const btnGame=document.querySelector(`.js-btn-${btn}`);
+    
+
+      if(!btnGame.classList.contains('is-toggled')){
+        //adding the toggle
+        btnGame.classList.add('is-toggled');    
+      }else{
+        //remove the toggle
+        btnGame.classList.remove('is-toggled');    
+      }
+    }
+
+    
+
+    // const btnelement=document.querySelector('.js-button');
+    // console.log(btnelement.classList.contains('js-btn'));
+  </script>
+</html>
