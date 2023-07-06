@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>11-array exerciese</title>
+  </head>
+  <body>
+    <script>
+    //   const nums=[3];
+    //   function minMax(nums){
+    //     const value={
+    //       min:nums[0],
+    //       max:nums[0]
+    //     };
+
+
+    //     let min=0;
+    //     let max=0;
+    //     const length=nums.length;
+    //     if(length === 0){
+    //       value.min=null;
+    //       value.max=null;
+    //     }else if(length === 1){
+    //       value.min=nums[0];
+    //       value.max=nums[0];
+    //     }
+    //     for (let i = 0; i < length ; i++) {
+    //       if(nums[i]<value.min){
+    //         value.min=nums[i];
+    //     }else{
+    //       value.max=nums[i];
+    //     }
+    //   }
+    //   return value;
+
+    // }
+    // console.log(minMax(nums));
+    // const arr=[];
+    // console.log(arr[arr.length]);
+    </script>
+    <script>
+      // 11m
+      // function minMax(nums) {
+      //   const result={
+      //     min:null,
+      //     max:null
+      //   };
+
+      //   for(let i=0;i<nums.length;i++){
+      //     const value=nums[i];
+      //     if(result.min === null || result.min > value){
+      //       result.min=value;
+      //     }
+      //     if(result.max === null || result.max < value){
+      //       result.max=value;
+      //     }
+          
+      //   }
+        
+      //   return result;
+      // }
+
+      // console.log(minMax([1, -3, 5]));
+      // console.log(minMax([-2, 3, -5, 7, 10]));
+
+      // console.log(minMax([]));
+      // console.log(minMax([3]));
+
+      //11n
+
+      // function countWords(words){
+      //   const result = {};
+      //   for(let i=0;i<words.length;i++){
+      //     let word=words[i];
+      //     if(result[word]){
+      //       result[word]++;
+      //     }else{
+      //       result[word]=1;
+      //     }
+      //   }
+      //   return result;
+      // }
+      // console.log(countWords(['apple','grape','apple','apple']));
+
+      //11q
+
+      // function findIndex (array,word){
+      //   for(let i=0;i<array.length;i++){
+      //     if(array[i] === word){
+      //       return i;
+      //     }
+      //   }
+      //   return -1;
+      // }
+      // console.log(findIndex(['hello','world','search','good'],'not'));
+      // 11r
+
+      // function removeEgg(food){
+      //   const result=[];
+      //   let i=0;
+      //   let j=0;
+      //   while(i<food.length){
+      //     if(food[i] === 'egg'){
+      //       i++;
+      //       continue;
+      //     }
+      //     result.push(food[i]);
+      //     i++;
+      //   }
+      //   return result;
+      // }
+      // console.log(removeEgg(['egg','apple','egg','egg','ham']));
+
+      // 11S
+
+      // function removeEgg(food){
+      //   const result=[];
+      //   let eggsRemoved=0;
+      //   for(let i=0;i<food.length;i++){
+
+      //     if(food[i] === 'egg' && eggsRemoved <2){
+      //       eggsRemoved++;
+      //       continue;
+      //     }
+      //     result.push(food[i]);          
+      //   }
+      //   return result;
+      // }
+      // console.log(removeEgg(['egg','apple','egg','egg','ham']));
+
+      //11t
+
+      function removeEgg(food){
+        const result=[];
+        let eggsRemoved=0;
+        const foodCopy=food.slice();
+        for(let i=0;i<food.length;i++){
+
+          if(foodCopy.reverse()[i] === 'egg' && eggsRemoved < 2){
+            eggsRemoved++ ;     
+            continue;           
+          }
+          result.push(foodCopy[i]);          
+        }
+        return result.reverse();
+      }
+      const food=['egg','apple','egg','egg','ham'];
+      console.log(removeEgg(food));
+      console.log(food);
+
+
+
+    </script>
+    
+  </body>
+</html>
