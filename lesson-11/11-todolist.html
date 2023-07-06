@@ -2,53 +2,8 @@
 <html>
   <head>
     <title>ToDos list</title>
-    <style>
-      body{
-        font-family: Arial;
-      }
-      .toDoList-grid,
-      .toDoList-input-grid{
-        display: grid;
-        grid-template-columns: 250px 170px 100px;
-        column-gap: 8px;
-        row-gap: 10px;
-        align-items: center;
-      }
-      .toDoList-input-grid{
-        margin-bottom:10px ;
-      }
-      .name-input,
-      .duedate-input{
-        padding: 10px 8px;
-        font-size:17px;
-        border-radius: 4px;
-        
-        border-style: solid;
-        border-width: 1px;
-      }
-      .js-error{
-        border-color: red ;
-      }
-      .btn-add,
-      .btn-delete{
-        padding: 10px 8px;
-        background-color: green;
-        border: none;
-        cursor: pointer;
-        color: white;
-        font-size: 16px;
-        border-radius: 4px;
-      }
-      .btn-add:hover,
-      .btn-delete:hover{
-        opacity:.9;
-      }
-      .btn-delete{
-        background-color: rgb(140, 0, 0);
-      }
-
-      
-    </style>
+    <link href="styles/11-todolist.css" rel="stylesheet">
+  
   </head>
   <body>
     <p>ToDoList</p>
@@ -62,83 +17,8 @@
       
     </div>
 
-    <script>
-      const toDoList= JSON.parse(localStorage.getItem('toDoList')) || [{
-        name:'Make Dinner',
-        dueDate:'2022-11-20'
-      }];
-      console.log(JSON.parse(localStorage.getItem('toDoList')));
-      renderToDo();
-      function renderToDo(){
-        let toDoHtml='';
-        for(let i=0;i<toDoList.length;i++){
-          let todoObject=toDoList[i];
-          let {name,dueDate}=todoObject;
-          toDoHtml+= `
-            <div>${name}</div>
-            <div>${dueDate} </div>
-            <button onclick="
-                removeToDo(${i});
-            " class="btn-delete">Delete</button>            
-            `;
-        }
-        document.querySelector(".js-addinglist").innerHTML=toDoHtml;
-
-      }
+    <script src="script/11-todolist.js">
       
-
-      function addToDo(){
-        const inputElement=document.querySelector('.js-input-todo');
-        const inputDateElement=document.querySelector('.js-input-date');
-        const name=inputElement.value;
-        const dueDate=inputDateElement.value;
-        // console.log(list); 
-        // console.log(!name === '' && !dueDate === '');  
-        // // console.log(typeof dueDate);
-        if(name !== '' && dueDate !== ''){
-          inputElement.classList.remove('js-error');
-          inputDateElement.classList.remove('js-error');
-          toDoList.push({
-          // name:name,
-          // dueDate:dueDate
-          // using shorthand property
-          name,
-          dueDate
-        });
-          
-        }else{
-          inputElement.classList.add('js-error');
-          inputDateElement.classList.add('js-error');
-
-          // alert('Please enter a valid value.');
-          
-        }
-        // toDoList.push({
-        //   // name:name,
-        //   // dueDate:dueDate
-        //   // using shorthand property
-        //   name,
-        //   dueDate
-        // });
-        // console.log(toDoList);
-        document.querySelector('.js-input-todo').value='';
-        document.querySelector('.js-input-date').value='';
-        renderToDo();
-
-        // Whenever we update the todo list, save in localStorage.
-        saveToStorage();
-        
-      }
-      function removeToDo(i){
-        toDoList.splice(i,1);
-        renderToDo();
-         // Whenever we update the todo list, save in localStorage.
-        saveToStorage();
-
-      }
-      function saveToStorage(){
-        localStorage.setItem('toDoList',JSON.stringify(toDoList));
-      }
 
     </script>
 
