@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <button onclick="
+      finishBtn();
+      " class="js-btn-finish">
+      Finish.
+    </button>
+    <button onclick="
+    addCartBtn();
+    ">
+      Add to cart
+    </button>
+    <p class="js-msg-addCart"></p>
+    <p>exerciese 12h</p>
+    <button onclick="
+    addMessage();
+    ">
+      Add
+    </button>
+    <button onclick="
+    clearMessage();    
+    ">
+      Remove
+    </button>
+    <script>
+      // let add=function(){
+      //   console.log(2+3);        
+      // };
+      // add();
+      // add();
+
+      // function runTwice(fun){
+      //   fun();
+      //   fun();
+      // }
+      // runTwice(function(){
+      //   console.log('12b');
+      // });
+      // runTwice(add);
+
+      // 12c
+
+      // function finishBtn(){
+      //   const btnElement = document.querySelector('.js-btn-finish');
+      //   setTimeout(function(){
+      //     btnElement.innerHTML='Finished!...';
+      //   },1000);
+      // }
+
+      // // 12d
+
+      // function finishBtn(){
+      //   const btnElement = document.querySelector('.js-btn-finish');
+      //   setTimeout(function(){
+      //     btnElement.innerHTML='Finished!...';
+      //   },1000);
+      //   btnElement.innerHTML='loading...';
+      // }
+      // // 12e
+      // let timeoutID; 
+      
+      // function addCartBtn(){
+        
+      //   console.log(timeoutID);
+              
+      //   const messageElement = document.querySelector('.js-msg-addCart');
+      //   messageElement.innerHTML='Added';
+      //   clearTimeout(timeoutID);
+      //   timeoutID = setTimeout(function(){
+      //     messageElement.innerHTML='';
+      //   },2000);
+      // }
+
+      // 12g
+
+      let message=0;
+      let intervalId;
+      display();
+      function addMessage(){
+        message+=1;
+        clearInterval(intervalId);
+        display();
+      }
+      function clearMessage(){
+        if(message > 0){
+          message--;
+          clearInterval(intervalId);
+          display();
+        }
+        
+
+      }
+      console.log(typeof message);
+
+      function display(){
+        if(message <= 0){
+        document.title='app';
+      }else{
+        console.log('test');
+        intervalId = setInterval(function(){
+        
+        let tittle = document;
+        console.log(tittle.title);
+        if(tittle.title === 'app'){
+          tittle.title=`(${message}) New messages`;
+        }else{
+          tittle.title='app';
+        }
+        
+        // document.title='12-lesson exercies';
+
+        },1000);
+
+      }
+      }
+
+    
+
+      
+    
+      
+      
+    </script>
+  </body>
+</html>

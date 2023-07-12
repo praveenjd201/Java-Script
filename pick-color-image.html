@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <tite></tite>
+    <style>
+      img{
+        width: 200px;
+        height: 250;
+        object-fit: cover;
+        object-position:center ;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="icons/download.jfif">
+    <button class="js-pickColor">
+      pick color
+    </button>
+  </body>
+
+  <script>
+    const pickingColor = async () =>{
+      console.log('hit');
+      const eyeDropper = new EyeDropper();
+      // open an eye dropped and get the sRGBHex value which is user selected color code
+      const { sRGBHex} = await eyeDropper.open();
+      console.log(sRGBHex);
+    }
+    document.querySelector('.js-pickColor').addEventListener('click',pickingColor);
+  </script>
+</html>
