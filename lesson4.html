@@ -2,25 +2,41 @@
 <html>
   <head>
     <title>Lesson 4</title>
-    <Style>
-      button{
+    <style>
+      button {
         background-color: yellow;
         border: 1px solid black;
         padding: 8px 12px;
-
       }
     </style>
   </head>
   <body>
     <p>Adults Plain Cotton T-shirt</p>
-    <p> Price: $7.99</p>
-    <button onclick="
+    <p>Price: $7.99</p>
+    <button
+      onclick="
     alert('added');
-    ">Add to cart</button>
-    <button onclick="
+    "
+    >
+      Add to cart
+    </button>
+    <button
+      onclick="
     alert('Loading...');
     alert('Purchaced');
-    "   
-    >Buy now</button>
+    "
+    >
+      Buy now
+    </button>
   </body>
+  <script>
+    function left() {
+      return false;
+    }
+    function right() {
+      console.log("right");
+    }
+
+    // console.log("hi");
+  </script>
 </html>
